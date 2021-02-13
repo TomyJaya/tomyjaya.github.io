@@ -32,7 +32,7 @@ class Trade {
 
 actual JSON: 
 
-```json
+```javascript
 {
   "tradeId": 793548328091516918,
   "tradeType": "BUY",
@@ -55,7 +55,9 @@ Somewhere in your front-end code, you will consume this by using either `JSON.pa
 Whoops! I knew JavaScript doesn't distinguish between floating point and integral numbers, what I didn't know was how much of its `Number` storage is reserved for the integral part. It turns out here's the allocation:
 
 ```
-64 bit = 1 bit (sign) + 11 bits (exponent) + 52 bits (fraction)
+64 bit = 1 bit (sign) 
+       + 11 bits (exponent) 
+       + 52 bits (fraction)
 ```
 
 `793548328091516918` is order of magnitudes greater than `2^52`. Hence, the truncation. 
@@ -111,7 +113,8 @@ There were many scenarios where I only needed a date instead of a datetime. I wo
 
 ```javascript
 new Date("2020-12-27")
-// Sun Dec 27 2020 08:00:00 GMT+0800 (Singapore Standard Time)
+// Sun Dec 27 2020 08:00:00 GMT+0800 
+//    (Singapore Standard Time)
 ```
 
 Notice the time is set at 8:00 am instead of midnight. Seems okay if you're in Singapore. 
@@ -120,7 +123,8 @@ However, in today's globalized economy, it's rarely the case that your system on
 
 ```javascript
 new Date("2020-12-27")
-// Sat Dec 26 2020 16:00:00 GMT-0800 (Pacific Standard Time) {}
+// Sat Dec 26 2020 16:00:00 GMT-0800 
+//   (Pacific Standard Time) {}
 
 new Date("2020-12-27").toDateString()
 // "Sat Dec 26 2020"
@@ -132,7 +136,8 @@ What should you do if you really need to get the date in the local time, though?
 
 ```javascript
 new Date("2020-12-27T00:00:00")
-// Sun Dec 27 2020 00:00:00 GMT-0800 (Pacific Standard Time)
+// Sun Dec 27 2020 00:00:00 GMT-0800 
+//    (Pacific Standard Time)
 ```
 
 Or, a better suggestion would perhaps be to use battle-tested libraries like [date-fns](https://date-fns.org/). 
