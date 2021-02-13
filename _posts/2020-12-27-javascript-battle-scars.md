@@ -4,7 +4,7 @@ title:      "JavaScript: Battle Scars"
 subtitle:   "Learn from my mistakes!"
 date:       2020-12-27 12:00:00
 author:     "Tomy Jaya"
-header-img: "img/post-bg-06.jpg"
+header-img: "img/post-bg-javascript.jpg"
 tags:
 - javascript
 ---
@@ -105,7 +105,37 @@ As a post-mortem, what we should have done is to be explicit:
 Goodbye point-free style.. :(
 
 
-## 3. Not Managing Node Proceses
+## 3. Using `Date` constructor without specifying time
+
+There were many scenarios where I only needed a date instead of a datetime. I would conveniently/ ignorantly use the JavaScript's `Date` constructor passing in `String` in `YYYY-MM-dd` format. E.g. 
+
+```javascript
+new Date("2020-12-27")
+// Sun Dec 27 2020 08:00:00 GMT+0800 (Singapore Standard Time)
+```
+
+Notice the time is set at 8:00 am instead of midnight. In today's globalized economy, it's rarely the case that your system only needs to support one timezone. And the above code is actually creating a Date object with the time set to midnight at UTC timezone. So, if you run that very same code in the US, where it's behind the UTC, it will give you **yesterday's** date (i.e. 26 Dec 2020) in the local time:
+
+```javascript
+new Date("2020-12-27")
+// Sat Dec 26 2020 16:00:00 GMT-0800 (Pacific Standard Time) {}
+
+new Date("2020-12-27").toDateString()
+// "Sat Dec 26 2020"
+```
+
+Whoops! This is definitely **not** what you intended! 
+
+What should you do if you really need to get the date in the local time, though? Turns out, you just have to be explicit and supply the time (in ISO 8601 format) as well:
+
+```javascript
+new Date("2020-12-27T00:00:00")
+// Sun Dec 27 2020 00:00:00 GMT-0800 (Pacific Standard Time)
+```
+
+Or, a better suggestion would perhaps be to use battle-tested libraries like [date-fns](https://date-fns.org/). 
+
+## 4. Not Managing Node Proceses
 
 This one is **not** strictly JavaScript; instead, it's more related to Node.js.
 
@@ -114,3 +144,10 @@ Unlike Tomcat with strong isolation of request threading & error handling, node 
 Hence, it's almost never a good idea just to deploy barebone `node` to serve live traffic. All you need is one bad request and unhandled path to bring down your service. 
 
 Instead, you should always use a process manager (e.g. [pm2](https://pm2.keymetrics.io/)) to automatically restarts your node server in case of crashes. And yes, crashing and restarting is counterintuitively the common pattern. This is because node server startup tends to be much faster than heavy weight containers like Tomcat, so the perceived downtime is minimal. 
+
+## Epilogue
+That's it for now! 
+
+![js-battle-scars](/img/js-battle-scars.jpg){:height="300px" width="300px"}
+
+**PS**: If you're looking for a quick read on JavaScript fundamental and gotchas as you transition from being a backend to a full-stack developer, I'd strongly recommend purchasing my book: [The Minimum JavaScript You Should Know When You Code React & Redux](https://www.amazon.com/dp/B07G5YCRV2) on Amazon. 
