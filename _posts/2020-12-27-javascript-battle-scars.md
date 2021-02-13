@@ -4,7 +4,7 @@ title:      "JavaScript: Battle Scars"
 subtitle:   "Learn from my mistakes!"
 date:       2020-12-27 12:00:00
 author:     "Tomy Jaya"
-header-img: "img/post-bg-javascript.jpg"
+header-img: "img/post-bg-js.jpg"
 tags:
 - javascript
 ---
@@ -114,7 +114,9 @@ new Date("2020-12-27")
 // Sun Dec 27 2020 08:00:00 GMT+0800 (Singapore Standard Time)
 ```
 
-Notice the time is set at 8:00 am instead of midnight. In today's globalized economy, it's rarely the case that your system only needs to support one timezone. And the above code is actually creating a Date object with the time set to midnight at UTC timezone. So, if you run that very same code in the US, where it's behind the UTC, it will give you **yesterday's** date (i.e. 26 Dec 2020) in the local time:
+Notice the time is set at 8:00 am instead of midnight. Seems okay if you're in Singapore. 
+
+However, in today's globalized economy, it's rarely the case that your system only needs to support one timezone and the above code is actually creating a `Date` object with the time set to midnight at **UTC** timezone. So, if you run that very same code in the US, where it's behind the UTC, it will give you **yesterday's** date (i.e. 26 Dec 2020) in the local time:
 
 ```javascript
 new Date("2020-12-27")
@@ -147,7 +149,5 @@ Instead, you should always use a process manager (e.g. [pm2](https://pm2.keymetr
 
 ## Epilogue
 That's it for now! 
-
-![js-battle-scars](/img/js-battle-scars.jpg){:height="300px" width="300px"}
 
 **PS**: If you're looking for a quick read on JavaScript fundamental and gotchas as you transition from being a backend to a full-stack developer, I'd strongly recommend purchasing my book: [The Minimum JavaScript You Should Know When You Code React & Redux](https://www.amazon.com/dp/B07G5YCRV2) on Amazon. 
