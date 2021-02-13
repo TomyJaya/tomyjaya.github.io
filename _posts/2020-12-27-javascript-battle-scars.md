@@ -4,7 +4,7 @@ title:      "JavaScript: Battle Scars"
 subtitle:   "Learn from my mistakes!"
 date:       2020-12-27 12:00:00
 author:     "Tomy Jaya"
-header-img: "img/post-bg-js.jpg"
+header-img: "img/post-bg-js.jpeg"
 tags:
 - javascript
 ---
