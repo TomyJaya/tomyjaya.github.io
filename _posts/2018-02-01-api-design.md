@@ -4,12 +4,14 @@ title:      "Checklist for Restful API Design"
 subtitle:   "Things You Must Know as a Backend API Developer"
 date:       2018-02-01 12:00:00
 author:     "Tomy Jaya"
-header-img: "img/post-bg-06.jpg"
+header-img: "img/post-bg-checklist.jpg"
 tags:
 - design
 - api
 - rest
 ---
+
+**NOTE:** Last Updated on **11 Jan 2020**
 
 ## Introduction: 
 
