@@ -142,7 +142,16 @@ new Date("2020-12-27T00:00:00")
 
 Or, a better suggestion would perhaps be to use battle-tested libraries like [date-fns](https://date-fns.org/). 
 
-## 4. Not Managing Node Proceses
+
+## 4. Using JavaScript Array.prototype.`sort`
+
+Many people are **not** aware that JavaScript's Array's `sort` does **not** guarantee stability! 
+
+If you come from Java background where `Arrays.sort` is stable, this is definitely a bummer. 
+
+To avoid "random" behavior in case elements are equal when being sorted, you will have to resort to a third party lirbary or do a preprocessing to get the index of the elements first. Later on, you can use that index lookup table to compare equal elements and get the original order they were in. 
+
+## 5. Not Managing Node Proceses
 
 This one is **not** strictly JavaScript; instead, it's more related to Node.js.
 

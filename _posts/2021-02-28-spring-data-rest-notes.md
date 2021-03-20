@@ -5,6 +5,7 @@ subtitle:   "Gist"
 date:       2020-12-27 12:00:00
 author:     "Tomy Jaya"
 header-img: "img/post-bg-01.jpg"
+prefix:     "🔥 "
 tags:
 - java
 - spring
