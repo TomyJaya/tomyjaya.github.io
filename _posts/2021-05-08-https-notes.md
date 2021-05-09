@@ -2,7 +2,7 @@
 layout:     post
 title:      "HTTPS-related Concepts"
 subtitle:   "A quick primer"
-date:       2020-05-08 12:00:00
+date:       2021-05-08 12:00:00
 author:     "Tomy Jaya"
 header-img: "img/https-notes-bg.jpeg"
 tags:
